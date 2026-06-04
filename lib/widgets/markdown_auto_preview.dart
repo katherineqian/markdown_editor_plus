@@ -310,7 +310,7 @@ class _MarkdownAutoPreviewState extends State<MarkdownAutoPreview> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // show toolbar
-              if (!widget.readOnly)
+              if (!widget.readOnly && !_previewed)
                 MarkdownToolbar(
                   markdownSyntax: widget.markdownSyntax,
                   // key: const ValueKey<String>("zmarkdowntoolbar"),
@@ -346,9 +346,7 @@ class _MarkdownAutoPreviewState extends State<MarkdownAutoPreview> {
                   borderColor: widget.borderColor,
                 ),
               Container(
-                margin: _previewed
-                    ? EdgeInsets.only(top: 10)
-                    : EdgeInsets.only(top: -50),
+                margin: const EdgeInsets.only(top: 10),
                 child: _previewed
                     ? Align(
                         alignment: Alignment.centerLeft,
