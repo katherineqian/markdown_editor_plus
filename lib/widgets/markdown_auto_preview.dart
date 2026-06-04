@@ -311,42 +311,46 @@ class _MarkdownAutoPreviewState extends State<MarkdownAutoPreview> {
             children: [
               // show toolbar
               if (!widget.readOnly)
-                MarkdownToolbar(
-                  markdownSyntax: widget.markdownSyntax,
-                  // key: const ValueKey<String>("zmarkdowntoolbar"),
-                  controller: _internalController,
-                  autoCloseAfterSelectEmoji: widget.autoCloseAfterSelectEmoji,
-                  toolbar: _toolbar,
-                  onActionCompleted: () {
-                    widget.onChanged?.call(_internalController.text);
-                  },
-                  previewed: _previewed,
-                  onPreviewChanged: () {
-                    if (widget.writeOnly) {
-                      setState(() {
-                        _previewed = !_previewed;
-                      });
-                    } else {
-                      // Remove focus first
-                      _internalFocus.unfocus();
+                Container(
+                  color: Colors.yellow,
+                  child: MarkdownToolbar(
+                    markdownSyntax: widget.markdownSyntax,
+                    // key: const ValueKey<String>("zmarkdowntoolbar"),
+                    controller: _internalController,
+                    autoCloseAfterSelectEmoji: widget.autoCloseAfterSelectEmoji,
+                    toolbar: _toolbar,
+                    onActionCompleted: () {
+                      widget.onChanged?.call(_internalController.text);
+                    },
+                    previewed: _previewed,
+                    onPreviewChanged: () {
+                      if (widget.writeOnly) {
+                        setState(() {
+                          _previewed = !_previewed;
+                        });
+                      } else {
+                        // Remove focus first
+                        _internalFocus.unfocus();
 
-                      // Then remove widget from widget tree
-                      setState(() {
-                        _focused = !_focused;
-                      });
-                    }
-                  },
-                  unfocus: () {
-                    _internalFocus.unfocus();
-                  },
-                  showEmojiSelection: widget.showEmojiSelection,
-                  emojiConvert: widget.emojiConvert,
-                  toolbarBackground: widget.toolbarBackground,
-                  expandableBackground: widget.expandableBackground,
-                  borderColor: widget.borderColor,
+                        // Then remove widget from widget tree
+                        setState(() {
+                          _focused = !_focused;
+                        });
+                      }
+                    },
+                    unfocus: () {
+                      _internalFocus.unfocus();
+                    },
+                    showEmojiSelection: widget.showEmojiSelection,
+                    emojiConvert: widget.emojiConvert,
+                    toolbarBackground: widget.toolbarBackground,
+                    expandableBackground: widget.expandableBackground,
+                    borderColor: widget.borderColor,
+                  ),
                 ),
               Container(
                 margin: const EdgeInsets.only(top: 10),
+                color: Colors.purple,
                 child: _previewed
                     ? Align(
                         alignment: Alignment.centerLeft,
