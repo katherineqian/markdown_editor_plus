@@ -290,7 +290,8 @@ class _MarkdownAutoPreviewState extends State<MarkdownAutoPreview> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: MarkdownBody(
-                  onTapLink: (String text, String? href, String title) => url_launcher.launch(href ?? ''),
+                  onTapLink: (String text, String? href, String title) =>
+                      url_launcher.launch(href ?? ''),
                   key: const ValueKey<String>("zmarkdown-parse-body"),
                   data: _internalController.text == ""
                       ? widget.hintText ?? "_Markdown text_"
@@ -344,23 +345,25 @@ class _MarkdownAutoPreviewState extends State<MarkdownAutoPreview> {
                   expandableBackground: widget.expandableBackground,
                   borderColor: widget.borderColor,
                 ),
-                Container(
-                  margin: _previewed
-                  ? EdgeInsets.only(top: 10)
-                  : EdgeInsets.only(top: -50),
-                  child: _previewed
-                  ? Align(
-                      alignment: Alignment.centerLeft,
-                      child: MarkdownBody(
-                        onTapLink: (String text, String? href, String title) => url_launcher.launch(href ?? ''),
-                        key: const ValueKey<String>("zmarkdown-parse-body"),
-                        data: _internalController.text == ""
-                            ? widget.hintText ?? "_Markdown text_"
-                            : _internalController.text,
-                      ),
-                    )
-                  : _editor(),
-                ),
+              Container(
+                margin: _previewed
+                    ? EdgeInsets.only(top: 10)
+                    : EdgeInsets.only(top: -50),
+                child: _previewed
+                    ? Align(
+                        alignment: Alignment.centerLeft,
+                        child: MarkdownBody(
+                          onTapLink:
+                              (String text, String? href, String title) =>
+                                  url_launcher.launch(href ?? ''),
+                          key: const ValueKey<String>("zmarkdown-parse-body"),
+                          data: _internalController.text == ""
+                              ? widget.hintText ?? "_Markdown text_"
+                              : _internalController.text,
+                        ),
+                      )
+                    : _editor(),
+              ),
             ],
           );
   }
