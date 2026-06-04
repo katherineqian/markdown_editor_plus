@@ -374,7 +374,6 @@ class _MarkdownAutoPreviewState extends State<MarkdownAutoPreview> {
       inputFormatters: [
         if (widget.emojiConvert) EmojiInputFormatter(),
       ],
-      textAlignVertical: TextAlignVertical.top,
       onChanged: widget.onChanged,
       onTap: widget.onTap,
       readOnly: widget.readOnly,
