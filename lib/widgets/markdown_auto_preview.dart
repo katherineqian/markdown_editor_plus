@@ -310,7 +310,7 @@ class _MarkdownAutoPreviewState extends State<MarkdownAutoPreview> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // show toolbar
-              if (!widget.readOnly && !_previewed)
+              if (!widget.readOnly)
                 MarkdownToolbar(
                   markdownSyntax: widget.markdownSyntax,
                   // key: const ValueKey<String>("zmarkdowntoolbar"),
